@@ -9,11 +9,11 @@ There is only file you have to edit i.e the "feeder" file. Which is nothing but 
 
 * 1. Clone this repository.
 
->  git clone https://github.com/singhmitesh/crypto_worth.git
+            git clone https://github.com/singhmitesh/crypto_worth.git
 
 * 2. cd into the repository.
 
-> cd crypto_worth
+            cd crypto_worth
 
 
 
@@ -21,7 +21,8 @@ There is only file you have to edit i.e the "feeder" file. Which is nothing but 
 
 * Run requirements file
 
-    >sudo pip install -r `requirements.py`
+        sudo pip install -r `requirements.py`
+
 
 ## Edit Feeder file
 
@@ -35,6 +36,9 @@ Open "feeder" file and edit it accordingly
         "holding": 2266.55
     }
 
+## Run
+
+    python fetch.py
 
 
 
