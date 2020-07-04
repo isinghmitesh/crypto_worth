@@ -1,5 +1,5 @@
 # crypto_worth
-Determine your current crypto currency worth in seconds.
+This is a Python script to calculate the total net-worth of cryptocurrency investment portfolio.
 
 ## Getting Started
 
