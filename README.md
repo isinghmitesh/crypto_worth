@@ -1,49 +1,140 @@
-# crypto_worth
-This is a Python script to calculate the total net-worth of cryptocurrency investment portfolio.
+# Crypto Worth
 
-## Getting Started
+A Python script to calculate and track the total net worth of your cryptocurrency investment portfolio in real-time.
 
-There is only file you have to edit i.e the "feeder" file. Which is nothing but a python file with a python dictionary which contians the information about your holdings in different crypto currencies.
+## 📋 Features
 
-## Setup instructions
+- **Real-time Portfolio Tracking**: Fetches current cryptocurrency prices from CoinMarketCap
+- **Multi-Currency Support**: Track holdings across multiple cryptocurrencies
+- **Net Worth Calculation**: Automatically calculates total portfolio value in USD
+- **Simple Configuration**: Easy-to-edit Python dictionary for managing your holdings
+- **Individual Asset Breakdown**: View the worth of each cryptocurrency separately
 
-* 1. Clone this repository.
+## 🔧 Prerequisites
 
-            git clone https://github.com/singhmitesh/crypto_worth.git
+- Python 2.7 or Python 3.x
+- pip (Python package installer)
+- Internet connection (to fetch real-time prices)
 
-* 2. cd into the repository.
+## 📥 Installation
 
-            cd crypto_worth
+1. **Clone the repository**
 
+   ```bash
+   git clone https://github.com/isinghmitesh/crypto_worth.git
+   ```
 
+2. **Navigate to the project directory**
 
-## Installing
+   ```bash
+   cd crypto_worth
+   ```
 
-* Run requirements file
+3. **Install required dependencies**
 
-        sudo pip install -r `requirements.py`
+   ```bash
+   pip install -r requriments.py
+   ```
 
+   Or install packages individually:
+   ```bash
+   pip install requests bs4 lxml
+   ```
 
-## Edit Feeder file
+## ⚙️ Configuration
 
-Open "feeder" file and edit it accordingly
+Edit the `feeder.py` file to add your cryptocurrency holdings. The file contains a list of dictionaries, where each dictionary represents one cryptocurrency holding.
 
+**Structure of each entry:**
 
+```python
+{
+    "s_no": 1,              # Serial number (for tracking purposes)
+    "currency": "bitcoin",  # Currency name (must match CoinMarketCap URL slug)
+    "holding": 0.5          # Quantity of the cryptocurrency you own
+}
+```
 
+**Example configuration:**
+
+```python
+fetch = [
     {
-        "s_no":3,
+        "s_no": 1,
+        "currency": "bitcoin",
+        "holding": 0.010555
+    },
+    {
+        "s_no": 2,
+        "currency": "ethereum",
+        "holding": 2.25488594
+    },
+    {
+        "s_no": 3,
         "currency": "ripple",
         "holding": 2266.55
     }
+]
+```
 
-## Run
+### Finding the correct currency name
 
-    python fetch.py
+The `currency` field must match the URL slug used by CoinMarketCap. For example:
+- Bitcoin: `bitcoin` (from https://coinmarketcap.com/currencies/bitcoin/)
+- Ethereum: `ethereum` (from https://coinmarketcap.com/currencies/ethereum/)
+- Ripple (XRP): `ripple` (from https://coinmarketcap.com/currencies/ripple/)
+
+## 🚀 Usage
+
+Run the script to calculate your portfolio's net worth:
+
+```bash
+python fetch.py
+```
+
+### Example Output
+
+```
+1   tron   :  1234.56
+2   cardano   :  5678.90
+3   bitcoin   :  10000.00
+4   ethereum   :  3456.78
 
 
+Net Worth  :  20370.24
+```
 
-### NOTE : Holding is the "quantity" of the respective crypto currency you hold in your portfolio.
+The script will:
+1. Fetch current prices for each cryptocurrency from CoinMarketCap
+2. Calculate the worth of each holding (quantity × current price)
+3. Display individual cryptocurrency values
+4. Show the total net worth of your portfolio in USD
 
+## 📝 Notes
 
+- **Holding**: The "holding" value represents the **quantity** of the cryptocurrency you own (not the purchase price)
+- **Currency Names**: Ensure the currency name matches exactly with CoinMarketCap's URL slug (usually lowercase with hyphens)
+- **Update Frequency**: Run the script anytime to get updated portfolio values based on current market prices
+- **Privacy**: Your holdings are stored locally in `feeder.py` and are never transmitted anywhere except for price lookups
 
-PS: Just edit the currency and holding field.
+## 🔍 Troubleshooting
+
+**Issue: Script fails to fetch price**
+- Verify the currency name matches CoinMarketCap's URL slug
+- Check your internet connection
+- Ensure CoinMarketCap website is accessible
+
+**Issue: Import errors**
+- Make sure all dependencies are installed: `pip install requests bs4 lxml`
+
+**Issue: Incorrect calculations**
+- Double-check your holding quantities in `feeder.py`
+- Ensure numeric values don't have formatting issues (no commas, use dots for decimals)
+
+## 📄 License
+
+This project is open source and available for personal use.
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
